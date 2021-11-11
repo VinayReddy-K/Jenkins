@@ -1,35 +1,53 @@
-pipeline {
-
-//agent {
-//  //node { label 'Workstation-1' }
-//  //label 'JAVA'
-//  none
+//pipeline {
+//
+////agent {
+////  //node { label 'Workstation-1' }
+////  //label 'JAVA'
+////  none
+////}
+//  agent any
+//
+//  stages {
+//     stage('Master Node') {
+//       agent {
+//         label 'MASTER'
+//       }
+//       steps {
+//         sh 'echo hello'
+//       }
+//     }
+//
+//     stage('Agent Node') {
+//       agent {
+//         label 'JAVA'
+//       }
+//       steps {
+//         sh 'echo hello'
+//       }
+//     }
+//  }
+//  post {
+//
+//    always {
+//      sh 'echo post stage'
+//    }
+//  }
 //}
+
+// IN BELOW PIPILINE WE R USING ENV SECT.
+
+pipeline {
   agent any
 
-  stages {
-     stage('Master Node') {
-       agent {
-         label 'MASTER'
-       }
-       steps {
-         sh 'echo hello'
-       }
-     }
-
-     stage('Agent Node') {
-       agent {
-         label 'JAVA'
-       }
-       steps {
-         sh 'echo hello'
-       }
-     }
+  environment {
+    DEMO_URL = "google.com"
   }
-  post {
-
-    always {
-      sh 'echo post stage'
+  stages {
+    stage('one') {
+      steps {
+        sh 'echo ${DEMO_URL}
+      }
     }
   }
+
 }
