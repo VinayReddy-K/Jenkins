@@ -82,6 +82,11 @@ pipeline {
         sh 'mvn clean'
       }
     }
+    stage('Three') {
+      steps{
+        echo 'Three'
+      }
+    }
   }
 
 }
