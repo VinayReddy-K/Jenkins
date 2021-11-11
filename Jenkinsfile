@@ -79,7 +79,7 @@ pipeline {
       //}
       }
       steps{
-        sh 'mvn clean'
+        sh 'ls'
       }
     }
     stage('Three') {
