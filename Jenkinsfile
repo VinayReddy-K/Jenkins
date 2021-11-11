@@ -1,9 +1,11 @@
 pipeline {
 
-  agent {
-    //node { label 'Workstation-1' }
-    //label 'JAVA'
-  }
+##agent {
+##  //node { label 'Workstation-1' }
+##  //label 'JAVA'
+##  none
+##}
+  agent none
 
   stages {
      stage('Master Node') {
