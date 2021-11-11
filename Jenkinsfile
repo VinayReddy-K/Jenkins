@@ -70,6 +70,13 @@ pipeline {
       }
     }
     stage('compile') {
+      input {
+        message "Should we continue?"
+        ok "Yes, we should."
+        //submitter "alice,bob"
+        //parameters {steps{
+            //string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')  sh 'mvn clean'
+      }
       steps{
         sh 'mvn clean'
       }
