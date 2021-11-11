@@ -25,6 +25,11 @@ pipeline {
          sh 'echo hello'
        }
      }
+  }
+  post {
 
+    always {
+      sh 'echo post stage'
+    }
   }
 }
