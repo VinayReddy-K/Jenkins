@@ -44,6 +44,9 @@ pipeline {
   }
   stages {
     stage('one') {
+      environment {
+        DEMO_URL = "YAHOO.com"
+      }
       steps {
         sh 'echo ${DEMO_URL}'
       }
