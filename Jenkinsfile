@@ -60,7 +60,7 @@ pipeline {
         sh '''
           echo ${DEMO_URL}
           echo ${SSH_USR}
-          echo "PERSON=${PERSON}"
+          echo ${PERSON}
         '''
       }
     }
