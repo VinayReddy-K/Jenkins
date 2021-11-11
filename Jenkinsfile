@@ -27,7 +27,7 @@ pipeline {
      }
   }
   post {
-
+    agent any
     always {
       sh 'echo post stage'
     }
