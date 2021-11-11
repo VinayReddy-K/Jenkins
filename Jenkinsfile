@@ -41,6 +41,7 @@ pipeline {
 
   environment {
     DEMO_URL = "google.com"
+    SSH = credentials('CENTOS_SSH')
   }
   stages {
     stage('one') {
@@ -48,7 +49,10 @@ pipeline {
         DEMO_URL = "YAHOO.com"
       }
       steps {
-        sh 'echo ${DEMO_URL}'
+        sh '''
+          echo ${DEMO_URL}
+          echo ${SSH_USR}
+        '''
       }
     }
   }
