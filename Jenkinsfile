@@ -5,7 +5,7 @@ pipeline {
 //  //label 'JAVA'
 //  none
 //}
-  agent none
+  agent any
 
   stages {
      stage('Master Node') {
@@ -27,7 +27,7 @@ pipeline {
      }
   }
   post {
-    agent any
+
     always {
       sh 'echo post stage'
     }
