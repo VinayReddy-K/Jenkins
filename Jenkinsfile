@@ -39,6 +39,10 @@
 pipeline {
   agent any
   options { disableConcurrentBuilds() }
+  tools{
+    maven 'maven'
+  }
+
   parameters {
     string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
     text(name: 'BIOGRAPHY', defaultValue: '', description: 'Enter some information about the person')
@@ -51,6 +55,7 @@ pipeline {
     DEMO_URL = "google.com"
     SSH = credentials('CENTOS_SSH')
   }
+
   stages {
     stage('one') {
       environment {
@@ -62,6 +67,11 @@ pipeline {
           echo ${SSH_USR}
           echo ${PERSON}
         '''
+      }
+    }
+    stage('compile') {
+      steps{
+        sh 'mvn clean'
       }
     }
   }
